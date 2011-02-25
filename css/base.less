@@ -1,12 +1,20 @@
 @import "grid.less";
 
+body {
+    font-family: Arial, "MS Trebuchet", sans-serif;
+}
+a {
+    color: #000000;
+}
+a:hover {
+    color: #666666;
+}
+
+
 .textblock {
     text-align: justify;
 }
 
-#container {
-    .container;
-}
 #middle {
     .grid(10);
     .textblock;
@@ -20,4 +28,46 @@
 #right {
     .grid(3);
     .textblock;
+}
+
+#logo {
+    margin-left: 36px;
+    margin-top: 23px;
+}
+#khadaffi {
+    margin-left: 34px;
+    margin-top: 6px;
+}
+#prose {
+    margin-left: 36px;
+    margin-top: 19px;
+    margin-bottom: 23px;
+    
+}
+#menu {
+    margin-bottom: 16px;
+    
+    .grid(4);
+    .pull(4);
+    
+    ul {
+        list-style-type: none;
+        margin: auto;
+        
+        li {
+            float: left;
+        }
+        
+        a {
+            text-decoration: none;
+            margin-left: 5px;
+            margin-right: 5px;
+            line-height: 32px;
+        }
+
+    }
+}
+#share {
+    .grid(4);
+    .push(6);
 }
