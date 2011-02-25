@@ -1,0 +1,23 @@
+@import "grid.less";
+
+.textblock {
+    text-align: justify;
+}
+
+#container {
+    .container;
+}
+#middle {
+    .grid(10);
+    .textblock;
+    .push(3);
+}
+#left {
+    .grid(3);
+    .textblock;
+    .pull(10);
+}
+#right {
+    .grid(3);
+    .textblock;
+}

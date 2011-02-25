@@ -1,0 +1,47 @@
+/* Grid framework based on 960 grid */
+/* -------------------------------- */
+/* Using less for this allows the html to still have symantec calss etc*/
+/* Mark McConachie */
+
+@page_width: 960px;
+@columns: 16;
+
+body {
+    min-width: @page_width;
+}
+.prefix(@prefix_size: 1) {
+    padding-left: (@page_width / @columns) * @prefix_size;
+}
+.suffix(@suffix_size: 1) {
+  padding-right: (@page_width / @columns) * @suffix_size;
+}
+.push(@push_size: 1) {
+    position: relative;
+    left: (@page_width / @columns) * @push_size;
+}
+.pull(@pull_size: 1) {
+    .push(0 - @pull_size);
+}
+.grid(@grid_size:1) {
+    width: (@page_width / @columns) * @grid_size - 20;
+    display: inline;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: @page_width;
+}
+.clearfix {
+    clear: both;
+    content: ' ';
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
