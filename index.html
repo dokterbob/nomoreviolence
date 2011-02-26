@@ -17,17 +17,13 @@
     
         $(function () {
             function tweet_template(info) {
-                if (info["user"] == "nomoreviolence_") {
-                    info["user"] = "We";
-                }
-                
                 return info["user"] + info["join"] + info["text"] + "<br/>" + info["time"];                                                    
             }
 
             $('#twitterfeed').tweet({
                 username: "nomoreviolence_",
                 query: "#nomoreviolence OR from:nomoreviolence_ OR to:nomoreviolence_ -include:retweets",
-                count: 6,
+                count: 5,
                 loading: "Loading tweets...",
                 template: tweet_template,
                 refresh_interval: 15,
