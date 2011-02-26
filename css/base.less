@@ -4,17 +4,21 @@ body {
     font-family: Palatino Linotype, Book Antiqua, Palatino, serif;
     font-size: 10pt;
 }
+@link-color: #000000;
+@link-hover-color: #666666;
 a {
-    color: #000000;
+    color: @link-color;
 }
 a:hover {
-    color: #666666;
+    color: @link-hover-color;
 }
 
 a > img {
     border: none;
 }
-
+h3 {
+    margin-bottom: 0.5em;
+}
 h3 > a {
     text-decoration: none;
 }
@@ -23,13 +27,17 @@ h3 > a {
     .grid(10);
     .push(3);
 }
+
+@sidebarmargin: 182px;
+
 #left {
     .grid(3);
     .pull(10);
-    margin-top: 200px;
+    margin-top: @sidebarmargin;
 }
 #right {
     .grid(3);
+    margin-top: @sidebarmargin;
 }
 
 #logo {
@@ -74,13 +82,50 @@ h3 > a {
 }
 
 #twitterfeed {
+    width: 22ex;
     ul {
+
+
         list-style-type: none;
-        padding: 0;
         margin: 0;
+        padding: 0;
+
 
         li {
-            display: block;
+            padding-bottom: 1.5ex;
+
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
         }
     }
+    .tweet_links {
+        a {
+            text-decoration: none;
+            color: #BB6666;
+        }
+        a:hover {
+            text-decoration: underline;
+        }        
+        
+    }
+    .tweet_text {
+        .tweet_links;
+        color: #992222;
+    }
+    .tweet_time {
+        .tweet_links;
+
+        a {
+            color: #BBBBBB;
+        }
+        a:hover {
+            color: @link-hover-color;
+            text-decoration: none;
+        }
+    }
+    a.tweet_user {
+        text-decoration: none;
+    }
+
 }

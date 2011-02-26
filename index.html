@@ -10,15 +10,37 @@
     <link rel="stylesheet/less" type="text/css" href="css/base.less">
     <script src="http://lesscss.googlecode.com/files/less-1.0.41.min.js" type="text/javascript"></script>
 
-    <!-- TwitterJS -->
-    <script src="http://twitterjs.googlecode.com/svn/trunk/src/twitter.min.js" type="text/javascript"></script>
+    <!-- Twitter feed -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
+    <script src="js/jquery.tweet.js" type="text/javascript"></script>
     <script type="text/javascript" charset="utf-8">
-        getTwitters('twitterfeed', { 
-          id: 'nomoreviolence_', 
-          count: 3, 
-          template: '"%text%" <a href="http://twitter.com/%user_screen_name%/statuses/%id_str%/">%time%</a>'
-        });        
+    
+        $(function () {
+            function tweet_template(info) {
+                if (info["user"] == "nomoreviolence_") {
+                    info["user"] = "We";
+                }
+                
+                return info["user"] + info["join"] + info["text"] + "<br/>" + info["time"];                                                    
+            }
+
+            $('#twitterfeed').tweet({
+                username: "nomoreviolence_",
+                query: "#nomoreviolence OR from:nomoreviolence_ OR to:nomoreviolence_ -include:retweets",
+                count: 6,
+                loading: "Loading tweets...",
+                template: tweet_template,
+                refresh_interval: 15,
+                join_text: "auto",
+                auto_join_text_default: " said:",
+                auto_join_text_ed: "",
+                auto_join_text_ing: " is:",
+                auto_join_text_reply: " replied to",
+                auto_join_text_url: "shared:"
+            });
+        });
     </script>
+    
     
     <!-- OpenGraph -->
     <meta property="og:title" content="No More Violence" />
@@ -48,11 +70,13 @@
     <div class="container">
         
         <div class="container" id="middle">
-            <a href="files/poster.pdf">
-                <img id="logo" src="images/logo.png" alt="No More Violence" width="524" height="174" />
-                <img id="khadaffi" src="images/khadaffi.jpg" alt="Khadaffi" width="527" height="493"/>
-                <img id="prose" src="images/prose.png" alt="Your relentless dictatorship is over. The violence against your people is unacceptable. It is time for you to step down. Now." width="524" height="116" />
-            </a>
+            <span id="poster">
+                <a href="files/poster.pdf">
+                    <img id="logo" src="images/logo.png" alt="No More Violence" width="524" height="174" />
+                    <img id="khadaffi" src="images/khadaffi.jpg" alt="Khadaffi" width="527" height="493"/>
+                    <img id="prose" src="images/prose.png" alt="Your relentless dictatorship is over. The violence against your people is unacceptable. It is time for you to step down. Now." width="524" height="116" />
+                </a>
+            </span>
 
             <div id="footer">
                 <div id="share">
@@ -78,8 +102,7 @@
         </div>
         <div id="left">
             <h3><a href="http://twitter.com/nomoreviolence_">@nomoreviolence_</a></h3>
-            <div id="twitterfeed">                
-            </div>
+            <div id="twitterfeed"></div>
         </div>
         <div id="right">
             &nbsp;
