@@ -9,6 +9,16 @@
     <title>No More Violence</title>
     <link rel="stylesheet/less" type="text/css" href="css/base.less">
     <script src="http://lesscss.googlecode.com/files/less-1.0.41.min.js" type="text/javascript"></script>
+
+    <!-- TwitterJS -->
+    <script src="http://twitterjs.googlecode.com/svn/trunk/src/twitter.min.js" type="text/javascript"></script>
+    <script type="text/javascript" charset="utf-8">
+        getTwitters('twitterfeed', { 
+          id: 'nomoreviolence_', 
+          count: 3, 
+          template: '"%text%" <a href="http://twitter.com/%user_screen_name%/statuses/%id_str%/">%time%</a>'
+        });        
+    </script>
     
     <!-- OpenGraph -->
     <meta property="og:title" content="No More Violence" />
@@ -67,7 +77,9 @@
             </div>
         </div>
         <div id="left">
-            &nbsp;
+            <h3><a href="http://twitter.com/nomoreviolence_">@nomoreviolence_</a></h3>
+            <div id="twitterfeed">                
+            </div>
         </div>
         <div id="right">
             &nbsp;
