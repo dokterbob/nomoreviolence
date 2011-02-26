@@ -11,24 +11,21 @@ a:hover {
     color: #666666;
 }
 
-
-.textblock {
-    text-align: justify;
+a > img {
+    border: none;
 }
 
 #middle {
     .grid(10);
-    .textblock;
     .push(3);
 }
 #left {
     .grid(3);
-    .textblock;
     .pull(10);
+    margin-top: 200px;
 }
 #right {
     .grid(3);
-    .textblock;
 }
 
 #logo {
@@ -37,11 +34,10 @@ a:hover {
 }
 #khadaffi {
     margin-left: 34px;
-    margin-top: 6px;
 }
 #prose {
     margin-left: 36px;
-    margin-top: 19px;
+    margin-top: 6px;
     margin-bottom: 23px;
     
 }
@@ -71,4 +67,16 @@ a:hover {
     .grid(4);
     .push(6);
     margin-bottom: 16px;
+}
+
+#twitterfeed {
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            display: block;
+        }
+    }
 }
