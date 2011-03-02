@@ -11,8 +11,9 @@
     <link rel="stylesheet/less" type="text/css" href="css/base.less">
     <script src="http://lesscss.googlecode.com/files/less-1.0.41.min.js" type="text/javascript"></script>
 
-    <!-- Twitter feed -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
+
+    <!-- Twitter feed -->
     <script src="js/jquery.tweet.min.js" type="text/javascript"></script>
     <script type="text/javascript" charset="utf-8">
     
@@ -61,6 +62,30 @@
       })();
 
     </script>
+    
+    <!-- Flickr Cycle plugin -->
+    <script type="text/javascript" src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.lite.1.0.min.js"></script>
+    
+    <script type="text/javascript" charset="utf-8">
+        var flickr_url = "http://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=2a19f57441d77189138b697fada07a05&user_id=60043247@N07&extras=url_m&format=json&nojsoncallback=1";
+        
+        $.getJSON(flickr_url, function(data){
+            var imagecycle = $("#imagecycle");
+            var imagetag;
+            
+            $.each(data.photos.photo, function(i,item){
+                var imagetag = $("<img />").attr("src", item.url_m);
+                imagetag.appendTo(imagecycle);              
+            });
+            
+            imagecycle.cycle({
+                fx:     'fade',
+                speed:    1500,
+                timeout:  4000,
+                fit: 1,
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -68,11 +93,13 @@
         
         <div class="container" id="middle">
             <span id="poster">
-                <a href="photos.html">
+                <a href="index.html">
                     <img id="logo" src="images/logo.png" alt="No More Violence" width="524" height="174" />
-                    <img id="khadaffi" src="images/khadaffi.jpg" alt="Khadaffi" width="527" height="493"/>
-                    <img id="prose" src="images/prose.png" alt="Your relentless dictatorship is over. The violence against your people is unacceptable. It is time for you to step down. Now." width="524" height="116" />
                 </a>
+                <a href="about.html">
+                    <div id="imagecycle"></div>
+                </a>
+                <p><a href="http://www.flickr.com/photos/nomoreviolence/show/">Slideshow</a></p>
             </span>
 
             <div id="footer">

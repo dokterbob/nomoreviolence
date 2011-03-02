@@ -12,7 +12,6 @@ a {
 a:hover {
     color: @link-hover-color;
 }
-
 a > img {
     border: none;
 }
@@ -61,10 +60,17 @@ h3 > a {
     width: 380px;
     text-align: justify;
 }
-#menu {
+.menutext {
     font-family: Arial, Arial, Helvetica, sans-serif;
     font-size: 12pt;
-    .grid(4);
+    a {
+        text-decoration: none;
+        line-height: 32px;
+    }    
+}
+#menu {
+    .menutext;
+    .grid(5);
     .pull(4);
     
     ul {
@@ -76,10 +82,8 @@ h3 > a {
         }
         
         a {
-            text-decoration: none;
             margin-left: 1ex;
             margin-right: 1ex;
-            line-height: 32px;
         }
 
     }
@@ -143,4 +147,16 @@ h3 > a {
         text-decoration: none;
     }
 
+}
+
+#imagecycle {
+    width: 527px;
+    height: 320px;
+    margin-left: 47px;
+    margin-top: 22px;
+}
+
+#poster > p {
+    .menutext;
+    text-align: center;
 }
